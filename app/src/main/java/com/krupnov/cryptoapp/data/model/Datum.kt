@@ -1,4 +1,4 @@
-package com.krupnov.cryptoapp.pojo
+package com.krupnov.cryptoapp.data.model
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName

@@ -1,13 +1,14 @@
-package com.krupnov.cryptoapp
+package com.krupnov.cryptoapp.presentation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import by.kirich1409.viewbindingdelegate.viewBinding
-import com.krupnov.cryptoapp.adapters.CoinInfoAdapter
+import com.krupnov.cryptoapp.R
+import com.krupnov.cryptoapp.presentation.adapters.CoinInfoAdapter
 import com.krupnov.cryptoapp.databinding.ActivityCoinPriceListBinding
-import com.krupnov.cryptoapp.pojo.CoinPriceInfo
+import com.krupnov.cryptoapp.data.model.CoinPriceInfo
 
 class CoinPriceListActivity : AppCompatActivity(R.layout.activity_coin_price_list) {
 
