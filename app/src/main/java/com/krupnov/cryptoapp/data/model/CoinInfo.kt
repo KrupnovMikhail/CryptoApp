@@ -1,4 +1,4 @@
-package com.krupnov.cryptoapp.pojo
+package com.krupnov.cryptoapp.data.model
 
 import android.media.Rating
 import com.google.gson.annotations.Expose

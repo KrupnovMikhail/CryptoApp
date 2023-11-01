@@ -1,14 +1,14 @@
-package com.krupnov.cryptoapp
+package com.krupnov.cryptoapp.presentation
 
 import android.app.Application
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import com.google.gson.Gson
-import com.krupnov.cryptoapp.api.ApiFactory
-import com.krupnov.cryptoapp.database.AppDatabase
-import com.krupnov.cryptoapp.pojo.CoinPriceInfo
-import com.krupnov.cryptoapp.pojo.CoinPriceInfoRawData
+import com.krupnov.cryptoapp.data.network.ApiFactory
+import com.krupnov.cryptoapp.data.database.AppDatabase
+import com.krupnov.cryptoapp.data.model.CoinPriceInfo
+import com.krupnov.cryptoapp.data.model.CoinPriceInfoRawData
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import java.util.concurrent.TimeUnit
@@ -19,12 +19,12 @@ class CoinViewModel(application: Application) : AndroidViewModel(application) {
 
     val priceList = db.coinPriceInfoDao().getPriceList()
 
-    init {
-        loadData()
-    }
-    
     fun getDetailInfo(fSym: String): LiveData<CoinPriceInfo> {
         return db.coinPriceInfoDao().getPriceInfoAboutCoin(fSym)
+    }
+
+    init {
+        loadData()
     }
 
    private fun loadData() {
@@ -42,6 +42,7 @@ class CoinViewModel(application: Application) : AndroidViewModel(application) {
             }, {
                 Log.d("TEST_OF_LOADING_DATA", "Failure ${it.message}")
             })
+       compositeDisposable.add(disposable)
     }
 
     private fun getPriceListFromRawData(

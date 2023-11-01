@@ -1,8 +1,7 @@
-package com.krupnov.cryptoapp.api
+package com.krupnov.cryptoapp.data.network
 
-import com.krupnov.cryptoapp.pojo.CoinListOfData
-import com.krupnov.cryptoapp.pojo.CoinPriceInfo
-import com.krupnov.cryptoapp.pojo.CoinPriceInfoRawData
+import com.krupnov.cryptoapp.data.model.CoinListOfData
+import com.krupnov.cryptoapp.data.model.CoinPriceInfoRawData
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Query
