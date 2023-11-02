@@ -1,4 +1,4 @@
-package com.krupnov.cryptoapp.data.model
+package com.krupnov.cryptoapp.data.network.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -10,7 +10,7 @@ import com.krupnov.cryptoapp.utils.convertTimestampToTime
 
 
 @Entity(tableName = "full_price_list")
-data class CoinPriceInfo (
+data class CoinInfoDto (
      @SerializedName("TYPE")
      @Expose
      val type: String?,
@@ -22,11 +22,11 @@ data class CoinPriceInfo (
      @PrimaryKey
      @SerializedName("FROMSYMBOL")
      @Expose
-     val fromsymbol: String,
+     val fromSymbol: String,
 
      @SerializedName("TOSYMBOL")
      @Expose
-     val tosymbol: String?,
+     val toSymbol: String?,
 
      @SerializedName("FLAGS")
      @Expose
@@ -38,7 +38,7 @@ data class CoinPriceInfo (
 
      @SerializedName("LASTUPDATE")
      @Expose
-     val lastupdate: Long?,
+     val lastUpdate: Long?,
 
      @SerializedName("MEDIAN")
      @Expose
@@ -78,11 +78,11 @@ data class CoinPriceInfo (
 
      @SerializedName("HIGHDAY")
      @Expose
-     val highday: Double?,
+     val highDay: Double?,
 
      @SerializedName("LOWDAY")
      @Expose
-     val lowday: Double?,
+     val lowDay: Double?,
 
      @SerializedName("OPEN24HOUR")
      @Expose
@@ -98,7 +98,7 @@ data class CoinPriceInfo (
 
      @SerializedName("LASTMARKET")
      @Expose
-     val lastmarket: String?,
+     val lastMarket: String?,
 
      @SerializedName("VOLUMEHOUR")
      @Expose
@@ -198,13 +198,13 @@ data class CoinPriceInfo (
 
      @SerializedName("IMAGEURL")
      @Expose
-     val imageurl: String?,
+     val imageUrl: String?,
  ) {
      fun getFormattedTime(): String {
-          return convertTimestampToTime(lastupdate)
+          return convertTimestampToTime(lastUpdate)
      }
 
      fun getFullImageUrl(): String {
-          return BASE_IMAGE_URL + imageurl
+          return BASE_IMAGE_URL + imageUrl
      }
 }

@@ -29,12 +29,12 @@ class CoinDetailActivity : AppCompatActivity(R.layout.activity_coin_detail) {
         viewModel.getDetailInfo(fromSymbol).observe(this, Observer {
             with(binding) {
                 tvPrice.text = it.price.toString()
-                tvMinPrice.text = it.lowday.toString()
-                tvMaxPrice.text = it.highday.toString()
-                tvLastMarket.text = it.lastmarket.toString()
+                tvMinPrice.text = it.lowDay.toString()
+                tvMaxPrice.text = it.highDay.toString()
+                tvLastMarket.text = it.lastMarket.toString()
                 tvLastUpdate.text = it.getFormattedTime()
-                tvFromSymbol.text = it.fromsymbol
-                tvToSymbol.text = it.tosymbol
+                tvFromSymbol.text = it.fromSymbol
+                tvToSymbol.text = it.toSymbol
                 Picasso.get().load(it.getFullImageUrl()).into(ivLogocoin)
             }
         })
