@@ -2,12 +2,12 @@ package com.krupnov.cryptoapp.domain
 
 data class CoinInfo(
 
-    val fromsymbol: String,
-    val tosymbol: String?,
+    val fromSymbol: String,
+    val toSymbol: String?,
     val price: Double?,
-    val lastupdate: Long?,
-    val highday: Double?,
-    val lowday: Double?,
-    val lastmarket: String?,
-    val imageurl: String?,
+    val lastUpdate: Long?,
+    val highDay: Double?,
+    val lowDay: Double?,
+    val lastMarket: String?,
+    val imageUrl: String?,
 )

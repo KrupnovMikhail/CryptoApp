@@ -8,7 +8,7 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.krupnov.cryptoapp.R
 import com.krupnov.cryptoapp.presentation.adapters.CoinInfoAdapter
 import com.krupnov.cryptoapp.databinding.ActivityCoinPriceListBinding
-import com.krupnov.cryptoapp.data.model.CoinPriceInfo
+import com.krupnov.cryptoapp.data.network.model.CoinInfoDto
 
 class CoinPriceListActivity : AppCompatActivity(R.layout.activity_coin_price_list) {
 
@@ -22,10 +22,10 @@ class CoinPriceListActivity : AppCompatActivity(R.layout.activity_coin_price_lis
         setContentView(viewBinding.root)
         val adapter = CoinInfoAdapter(this)
         adapter.onCoinClickListener = object : CoinInfoAdapter.OnCoinClickListener {
-            override fun onCoinClick(coinPriceInfo: CoinPriceInfo) {
+            override fun onCoinClick(coinPriceInfo: CoinInfoDto) {
                 val intent = CoinDetailActivity.newIntent(
                     this@CoinPriceListActivity,
-                    coinPriceInfo.fromsymbol
+                    coinPriceInfo.fromSymbol
                 )
                 startActivity(intent)
             }
