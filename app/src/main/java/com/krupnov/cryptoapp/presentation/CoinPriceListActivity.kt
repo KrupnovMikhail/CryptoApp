@@ -9,6 +9,7 @@ import com.krupnov.cryptoapp.R
 import com.krupnov.cryptoapp.presentation.adapters.CoinInfoAdapter
 import com.krupnov.cryptoapp.databinding.ActivityCoinPriceListBinding
 import com.krupnov.cryptoapp.data.network.model.CoinInfoDto
+import com.krupnov.cryptoapp.domain.CoinInfo
 
 class CoinPriceListActivity : AppCompatActivity(R.layout.activity_coin_price_list) {
 
@@ -22,7 +23,7 @@ class CoinPriceListActivity : AppCompatActivity(R.layout.activity_coin_price_lis
         setContentView(viewBinding.root)
         val adapter = CoinInfoAdapter(this)
         adapter.onCoinClickListener = object : CoinInfoAdapter.OnCoinClickListener {
-            override fun onCoinClick(coinPriceInfo: CoinInfoDto) {
+            override fun onCoinClick(coinPriceInfo: CoinInfo) {
                 val intent = CoinDetailActivity.newIntent(
                     this@CoinPriceListActivity,
                     coinPriceInfo.fromSymbol
@@ -32,32 +33,8 @@ class CoinPriceListActivity : AppCompatActivity(R.layout.activity_coin_price_lis
         }
         viewBinding.rvCoinPriceList.adapter = adapter
         viewModel = ViewModelProvider(this)[CoinViewModel::class.java]
-        viewModel.priceList.observe(this, Observer {
+        viewModel.coinInfoList.observe(this) {
             adapter.coinInfoList = it
-        })
-        //////////////////////////////////////////////////////////////////////
-//        viewModel.loadData()
-//        viewModel.priceList.observe(this, Observer {
-//            Log.d("TEST_OF_LOADING_DATA", "Success in activity: $it")
-//        })
-//        viewModel.getDetailInfo("BTC").observe(this, Observer {
-//            Log.d("TEST_OF_LOADING_DATA", "Success in activity: $it")
-//        })
-
-        /////////////////////////////////////////////////////////////////////
-//        val disposable = ApiFactory.apiService.getFullPriceList(fSyms = "BNC,ETH,EOS")
-//            .subscribeOn(Schedulers.io())
-//            .observeOn(AndroidSchedulers.mainThread())
-//            .subscribe({
-//                Log.d("TEST_OF_LOADING_DATA", it.toString())
-//            },{
-//                Log.d("TEST_OF_LOADING_DATA", it.message ?: "Warning")
-//            })
-//        compositeDisposable.add(disposable)
+        }
     }
-
-//    override fun onDestroy() {
-//        super.onDestroy()
-//        compositeDisposable.dispose()
-//    }
 }
