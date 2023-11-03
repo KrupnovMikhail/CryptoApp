@@ -5,7 +5,6 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import by.kirich1409.viewbindingdelegate.viewBinding
 import com.krupnov.cryptoapp.R
 import com.krupnov.cryptoapp.databinding.ActivityCoinDetailBinding
 import com.squareup.picasso.Picasso
@@ -14,7 +13,9 @@ class CoinDetailActivity : AppCompatActivity(R.layout.activity_coin_detail) {
 
     private lateinit var viewModel: CoinViewModel
 
-    private val binding by viewBinding(ActivityCoinDetailBinding::bind)
+    private val binding by lazy {
+        ActivityCoinDetailBinding.inflate(layoutInflater)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
