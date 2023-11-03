@@ -4,14 +4,10 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.krupnov.cryptoapp.R
-import com.krupnov.cryptoapp.data.network.ApiFactory
-import com.krupnov.cryptoapp.data.network.ApiFactory.BASE_IMAGE_URL
 import com.krupnov.cryptoapp.databinding.ActivityCoinDetailBinding
-import com.krupnov.cryptoapp.utils.convertTimestampToTime
 import com.squareup.picasso.Picasso
 
 class CoinDetailActivity : AppCompatActivity(R.layout.activity_coin_detail) {
@@ -35,10 +31,10 @@ class CoinDetailActivity : AppCompatActivity(R.layout.activity_coin_detail) {
                 tvMinPrice.text = it.lowDay.toString()
                 tvMaxPrice.text = it.highDay.toString()
                 tvLastMarket.text = it.lastMarket.toString()
-                tvLastUpdate.text = convertTimestampToTime(it.lastUpdate)
+                tvLastUpdate.text = it.lastUpdate
                 tvFromSymbol.text = it.fromSymbol
                 tvToSymbol.text = it.toSymbol
-                Picasso.get().load(BASE_IMAGE_URL + it.imageUrl).into(ivLogocoin)
+                Picasso.get().load(it.imageUrl).into(ivLogocoin)
             }
         }
     }
