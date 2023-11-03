@@ -7,7 +7,7 @@
     tools:context=".presentation.CoinDetailActivity">
 
     <ImageView
-        android:id="@+id/ivLogocoin"
+        android:id="@+id/ivLogoCoin"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_margin="16dp"
@@ -33,9 +33,9 @@
         android:layout_height="wrap_content"
         android:textColor="@android:color/holo_purple"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@id/ivLogocoin"
-        app:layout_constraintStart_toStartOf="@id/ivLogocoin"
-        app:layout_constraintTop_toBottomOf="@id/ivLogocoin"
+        app:layout_constraintEnd_toEndOf="@id/ivLogoCoin"
+        app:layout_constraintStart_toStartOf="@id/ivLogoCoin"
+        app:layout_constraintTop_toBottomOf="@id/ivLogoCoin"
         android:layout_marginTop="8dp"
         android:padding="4dp"
         android:text="/"/>
